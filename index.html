@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sofiane Khatib - Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #3b82f6;
+            bottom: -2px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .skill-pill {
+            transition: all 0.3s ease;
+        }
+
+        .skill-pill:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .timeline-dot {
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+        }
+
+        .projet {
+            margin-top: 30px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-blue-500">Sofiane Khatib</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#accueil" class="nav-link relative">Accueil</a>
+                <a href="#apropos" class="nav-link relative">À propos</a>
+                <a href="#competences" class="nav-link relative">Compétences</a>
+                <a href="#projets" class="nav-link relative">Projets</a>
+                <a href="#formation" class="nav-link relative">Formation</a>
+                <a href="#contact" class="nav-link relative">Contact</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white px-6 py-3 border-t">
+            <div class="flex flex-col space-y-3">
+                <a href="#accueil" class="nav-link">Accueil</a>
+                <a href="#apropos" class="nav-link">À propos</a>
+                <a href="#competences" class="nav-link">Compétences</a>
+                <a href="#projets" class="nav-link">Projets</a>
+                <a href="#formation" class="nav-link">Formation</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="min-h-screen flex items-center pt-20 section">
+        <div class="container mx-auto px-6 py-16 md:py-24 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-12 md:mb-0">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Bonjour, je suis <span
+                        class="text-blue-500">Sofiane Khatib</span></h1>
+                <h2 class="text-2xl md:text-3xl text-gray-600 mb-6">Étudiant en Informatique & Développeur</h2>
+                <p class="text-lg text-gray-600 mb-8">Passionné par le développement logiciel, les bases de données et
+                    les technologies web. Actuellement à la recherche d'un stage de fin d'études (PFE).</p>
+                <div class="flex space-x-4">
+                    <a href="#contact"
+                        class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition duration-300">Me
+                        contacter</a>
+                    <a href="#projets"
+                        class="border border-blue-500 text-blue-500 hover:bg-blue-50 px-6 py-3 rounded-lg transition duration-300">Voir
+                        mes projets</a>
+                </div>
+                <div class="mt-8 flex space-x-4">
+                    <a href="https://www.linkedin.com/in/sofiane-khatib-5b775332b/" target="_blank"
+                        class="text-gray-600 hover:text-blue-500 transition duration-300">
+                        <i class="fab fa-linkedin-in text-2xl"></i>
+                    </a>
+                    <a href="https://github.com/sofianekhatib" target="_blank"
+                        class="text-gray-600 hover:text-gray-900 transition duration-300">
+                        <i class="fab fa-github text-2xl"></i>
+                    </a>
+                    <a href="mailto:soufianekhatib652@gmail.com"
+                        class="text-gray-600 hover:text-red-500 transition duration-300">
+                        <i class="fas fa-envelope text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+                    <div class="absolute inset-0 bg-blue-100 rounded-full opacity-20 floating"
+                        style="animation-delay: 0.5s;"></div>
+                    <div class="absolute inset-4 bg-blue-200 rounded-full opacity-20 floating"
+                        style="animation-delay: 1s;"></div>
+                    <div class="absolute inset-8 bg-blue-300 rounded-full opacity-20 floating"
+                        style="animation-delay: 1.5s;"></div>
+                    <img src="images/WhatsApp Image 2024-11-10 à 14.41.31_d691621b.jpg" alt="Profil"
+                        class="relative w-full h-full rounded-full object-cover border-4 border-white shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="apropos" class="py-20 bg-white section">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">À <span class="text-blue-500">propos</span>
+            </h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                    <img src="images/WhatsApp Image 2024-11-10 à 14.41.31_d691621b.jpg" alt="Sofiane Khatib"
+                        class="w-64 h-64 rounded-full object-cover border-4 border-blue-100 shadow-lg">
+                </div>
+                <div class="md:w-2/3 md:pl-12">
+                    <h3 class="text-2xl font-semibold mb-4">Qui suis-je ?</h3>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Je m'appelle Sofiane Khatib, étudiant en licence d'informatique à la Faculté des Sciences et
+                        Techniques de Béni Mellal au Maroc.
+                        Actuellement à la recherche d'un stage de fin d'études (PFE), je suis passionné par le
+                        développement logiciel, les bases de données
+                        et les technologies web. Mon objectif est d'intégrer une structure dynamique où je pourrai
+                        mettre en pratique mes compétences
+                        tout en continuant à apprendre auprès de professionnels expérimentés.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold mb-2">Informations personnelles</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-center">
+                                    <i class="fas fa-map-marker-alt text-blue-500 mr-2"></i>
+                                    <span>Béni Mellal, Maroc</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-phone text-blue-500 mr-2"></i>
+                                    <span>+212 772 817 824</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-envelope text-blue-500 mr-2"></i>
+                                    <span>soufianekhatib652@gmail.com</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-2">Langues</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-blue-500 mr-2"></i>
+                                    <span>Arabe (Langue maternelle)</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-blue-500 mr-2"></i>
+                                    <span>Anglais (Avancé)</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-blue-500 mr-2"></i>
+                                    <span>Français (Intermédiaire)</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="competences" class="py-20 bg-gray-50 section">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Mes <span
+                    class="text-blue-500">compétences</span></h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Langages -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-code text-blue-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Langages de programmation</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-pill bg-blue-100 text-blue-800 px-4 py-2 rounded-full">JavaScript</span>
+                        <span class="skill-pill bg-blue-100 text-blue-800 px-4 py-2 rounded-full">Java</span>
+                        <span class="skill-pill bg-blue-100 text-blue-800 px-4 py-2 rounded-full">PHP</span>
+                        <span class="skill-pill bg-blue-100 text-blue-800 px-4 py-2 rounded-full">C</span>
+                        <span class="skill-pill bg-blue-100 text-blue-800 px-4 py-2 rounded-full">HTML5/CSS3</span>
+                    </div>
+                </div>
+
+                <!-- Frameworks -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-purple-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-cogs text-purple-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Frameworks & Bibliothèques</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-pill bg-purple-100 text-purple-800 px-4 py-2 rounded-full">React.js</span>
+                        <span class="skill-pill bg-purple-100 text-purple-800 px-4 py-2 rounded-full">Tailwind
+                            CSS</span>
+                        <span class="skill-pill bg-purple-100 text-purple-800 px-4 py-2 rounded-full">Bootstrap</span>
+                        <span class="skill-pill bg-purple-100 text-purple-800 px-4 py-2 rounded-full">Material UI</span>
+                    </div>
+                </div>
+
+                <!-- Bases de données -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-database text-green-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Bases de données</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-pill bg-green-100 text-green-800 px-4 py-2 rounded-full">MySQL</span>
+                        <span class="skill-pill bg-green-100 text-green-800 px-4 py-2 rounded-full">SQL</span>
+                    </div>
+                </div>
+
+                <!-- Outils -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-yellow-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-tools text-yellow-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Outils</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-pill bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">Git/GitHub</span>
+                        <span class="skill-pill bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">Visual
+                            Studio</span>
+                        <span class="skill-pill bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">Eclipse</span>
+                        <span class="skill-pill bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">Matlab</span>
+                    </div>
+                </div>
+
+                <!-- Méthodologies -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-red-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-project-diagram text-red-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Méthodologies</h3>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                            <span>Programmation Orientée Objet (POO)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                            <span>Design Responsive</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                            <span>API REST & JSON</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projets" class="py-20 bg-white section">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Mes <span class="text-blue-500">projets</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Système de Gestion de Bibliothèque -->
+                <div
+                    class="bg-gray-50 rounded-lg overflow-hidden shadow-md border border-gray-100 transition-transform duration-300 hover:shadow-lg hover:-translate-y-2">
+                    <div class="h-48 bg-blue-500 flex items-center justify-center">
+                        <i class="fas fa-book-open text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Système de Gestion de Bibliothèque</h3>
+                        <p class="text-gray-600 mb-4">
+                            Application responsive et sécurisée développée avec React.js, Tailwind CSS, Bootstrap et
+                            PHP.
+                        </p>
+                        <div class="mb-4">
+                            <h4 class="font-medium mb-2">Fonctionnalités :</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Recherche et filtrage avancé</li>
+                                <li>Gestion complète des livres</li>
+                                <li>Inscription en ligne</li>
+                                <li>Système d'emprunt/retour</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">React.js</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Tailwind CSS</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Bootstrap</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">PHP</span>
+                        </div>
+                        <div class="projet">
+                            <a href="https://github.com/sofianekhatib/AcademIQ.git" target="_blank"
+                                class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition duration-300">Consulter
+                                le dépôt sur GitHub</a>
+                            <a href=""
+                                class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition duration-300">Aperçu
+                                en direct</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Système de Gestion d'Hôpital -->
+                <div
+                    class="bg-gray-50 rounded-lg overflow-hidden shadow-md border border-gray-100 transition-transform duration-300 hover:shadow-lg hover:-translate-y-2">
+                    <div class="h-48 bg-green-500 flex items-center justify-center">
+                        <i class="fas fa-hospital text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Système de Gestion d'Hôpital</h3>
+                        <p class="text-gray-600 mb-4">
+                            Interface complète développée avec React.js, Tailwind CSS et Material UI.
+                        </p>
+                        <div class="mb-4">
+                            <h4 class="font-medium mb-2">Fonctionnalités :</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Gestion des dossiers patients</li>
+                                <li>Suivi des médicaments</li>
+                                <li>Prise de rendez-vous en ligne</li>
+                                <li>Système de facturation</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">React.js</span>
+                            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Tailwind CSS</span>
+                            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Material UI</span>
+                        </div>
+                        <div class="projet">
+                            <a  
+                                class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg transition duration-300">Consulter
+                                le dépôt sur GitHub</a>
+                            <a href=""
+                                class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg transition duration-300">Aperçu
+                                en direct</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Education Section -->
+    <section id="formation" class="py-20 bg-gray-50 section">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Ma <span class="text-blue-500">formation</span>
+            </h2>
+
+            <div class="flex flex-col md:flex-row md:flex-wrap md:justify-center gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 md:flex-1 md:max-w-md">
+                    <div class="flex items-start">
+                        <div class="bg-blue-100 p-2 rounded-full mr-4 mt-1">
+                            <i class="fas fa-check text-blue-500"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold">Baccalauréat Sciences Physiques & Chimie Option français
+                            </h3>
+                            <p class="text-blue-500 mb-2">2021-2022</p>
+                            <p class="text-gray-600">Lycée Moulay Rachid, Kasba Tadla</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 md:flex-1 md:max-w-md">
+                    <div class="flex items-start">
+                        <div class="bg-blue-100 p-2 rounded-full mr-4 mt-1">
+                            <i class="fas fa-check text-blue-500"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold">DEUST (MIP)</h3>
+                            <p class="text-blue-500 mb-2">2024-2025</p>
+                            <p class="text-gray-600">Mathématiques, Informatique et Physique - FST Béni Mellal</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 md:flex-1 md:max-w-md">
+                    <div class="flex items-start">
+                        <div class="bg-blue-100 p-2 rounded-full mr-4 mt-1">
+                            <i class="fas fa-check text-blue-500"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold">Licence en Informatique</h3>
+                            <p class="text-blue-500 mb-2">2025-2026</p>
+                            <p class="text-gray-600">Faculté des Sciences et Techniques, Béni Mellal, Maroc</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white section">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Me <span class="text-blue-500">contacter</span>
+            </h2>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <h3 class="text-2xl font-semibold mb-4">Coordonnées</h3>
+                    <p class="text-gray-600 mb-6">N'hésitez pas à me contacter pour toute question ou opportunité. Je
+                        vous répondrai dès que possible !</p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Adresse</h4>
+                                <p class="text-gray-600">Béni Mellal, Maroc</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-phone text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Téléphone</h4>
+                                <p class="text-gray-600">+212 772 817 824</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Email</h4>
+                                <p class="text-gray-600">soufianekhatib652@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8">
+                        <h4 class="font-semibold mb-4">Réseaux sociaux</h4>
+                        <div class="flex space-x-4">
+                            <a href="https://www.linkedin.com/in/sofiane-khatib-5b775332b/" target="_blank"
+                                class="bg-blue-100 text-blue-500 hover:bg-blue-200 w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/sofianekhatib" target="_blank"
+                                class="bg-gray-100 text-gray-700 hover:bg-gray-200 w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:w-1/2">
+                    <form class="bg-gray-50 p-6 rounded-lg shadow-md">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Votre nom</label>
+                            <input type="text" id="name"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Votre email</label>
+                            <input type="email" id="email"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="sujet" class="block text-gray-700 font-medium mb-2">Sujet</label>
+                            <input type="text" id="sujet"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                            <textarea id="message" rows="5"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        </div>
+
+                        <button type="submit"
+                            class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition duration-300 w-full">
+                            Envoyer le message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2023 Sofiane Khatib. Tous droits réservés.</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="#accueil" class="hover:text-blue-300 transition duration-300">Accueil</a>
+                <a href="#apropos" class="hover:text-blue-300 transition duration-300">À propos</a>
+                <a href="#competences" class="hover:text-blue-300 transition duration-300">Compétences</a>
+                <a href="#projets" class="hover:text-blue-300 transition duration-300">Projets</a>
+                <a href="#contact" class="hover:text-blue-300 transition duration-300">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Scroll animation
+        const sections = document.querySelectorAll('.section');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Navbar shadow on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 10) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+
+</html>
