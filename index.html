@@ -7,6 +7,7 @@
     <title>Sofiane Khatib - Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
@@ -79,10 +80,378 @@
             flex-direction: row;
             gap: 10px;
         }
+
+        /* From Uiverse.io by adamgiebl */
+        .cssbuttons-io-button {
+            display: flex;
+            align-items: center;
+            font-family: inherit;
+            font-weight: 500;
+            font-size: 17px;
+            padding: 0.8em 1.5em 0.8em 1.2em;
+            color: white;
+            background: #ff7d00;
+            background: linear-gradient(0deg, rgba(255, 125, 0, 1) 0%, rgba(255, 95, 109, 1) 100%);
+            border: 2px solid #ff7d00;
+            border-radius: 20em;
+        }
+
+        .cssbuttons-io-button svg {
+            margin-right: 8px;
+        }
+
+        .cssbuttons-io-button:hover {
+            border-color: white;
+            box-shadow: 0 0.5em 1.5em -0.5em #bf5800;
+        }
+
+        .cssbuttons-io-button:active {
+            box-shadow: 0 0.3em 1em -0.5em #bf5800;
+        }
+
+        /* From Uiverse.io by andrew-manzyk */
+        .loader {
+            --fill-color: #5c3d99;
+            --shine-color: #5c3d9933;
+            transform: scale(0.5);
+            /* You can change the size */
+            width: 100px;
+            height: auto;
+            position: relative;
+            filter: drop-shadow(0 0 10px var(--shine-color));
+        }
+
+        /* Loader container should cover entire screen */
+        .loader {
+            --fill-color: #5c3d99;
+            --shine-color: #5c3d9933;
+            width: 100px;
+            height: auto;
+            position: relative;
+            filter: drop-shadow(0 0 10px var(--shine-color));
+
+            /* Add these new properties: */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.5);
+            /* Keep the scale */
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Hide content initially */
+        .content {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        /* Show content when loaded */
+        .content.loaded {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .loader #pegtopone {
+            position: absolute;
+            animation: flowe-one 1s linear infinite;
+        }
+
+        .loader #pegtoptwo {
+            position: absolute;
+            opacity: 0;
+            transform: scale(0) translateY(-200px) translateX(-100px);
+            animation: flowe-two 1s linear infinite;
+            animation-delay: 0.3s;
+        }
+
+        .loader #pegtopthree {
+            position: absolute;
+            opacity: 0;
+            transform: scale(0) translateY(-200px) translateX(100px);
+            animation: flowe-three 1s linear infinite;
+            animation-delay: 0.6s;
+        }
+
+        .loader svg g path:first-child {
+            fill: var(--fill-color);
+        }
+
+        @keyframes flowe-one {
+            0% {
+                transform: scale(0.5) translateY(-200px);
+                opacity: 0;
+            }
+
+            25% {
+                transform: scale(0.75) translateY(-100px);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1) translateY(0px);
+                opacity: 1;
+            }
+
+            75% {
+                transform: scale(0.5) translateY(50px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(0) translateY(100px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes flowe-two {
+            0% {
+                transform: scale(0.5) rotateZ(-10deg) translateY(-200px) translateX(-100px);
+                opacity: 0;
+            }
+
+            25% {
+                transform: scale(1) rotateZ(-5deg) translateY(-100px) translateX(-50px);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1) rotateZ(0deg) translateY(0px) translateX(-25px);
+                opacity: 1;
+            }
+
+            75% {
+                transform: scale(0.5) rotateZ(5deg) translateY(50px) translateX(0px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(0) rotateZ(10deg) translateY(100px) translateX(25px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes flowe-three {
+            0% {
+                transform: scale(0.5) rotateZ(10deg) translateY(-200px) translateX(100px);
+                opacity: 0;
+            }
+
+            25% {
+                transform: scale(1) rotateZ(5deg) translateY(-100px) translateX(50px);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1) rotateZ(0deg) translateY(0px) translateX(25px);
+                opacity: 1;
+            }
+
+            75% {
+                transform: scale(0.5) rotateZ(-5deg) translateY(50px) translateX(0px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(0) rotateZ(-10deg) translateY(100px) translateX(-25px);
+                opacity: 0;
+            }
+        }
+
+
+        /* Keyframe for rotation */
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Hide content until preloader is removed */
+        .content {
+            display: none;
+        }
     </style>
 </head>
 
 <body class="bg-gray-50 text-gray-800">
+    <div class="loader">
+        <svg id="pegtopone" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 100 100">
+            <defs>
+                <filter id="shine">
+                    <feGaussianBlur stdDeviation="3"></feGaussianBlur>
+                </filter>
+                <mask id="mask">
+                    <path
+                        d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+                        fill="white"></path>
+                </mask>
+                <radialGradient id="gradient-1" cx="50" cy="66" fx="50" fy="66" r="30"
+                    gradientTransform="translate(0 35) scale(1 0.5)" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="black" stop-opacity="0.3"></stop>
+                    <stop offset="50%" stop-color="black" stop-opacity="0.1"></stop>
+                    <stop offset="100%" stop-color="black" stop-opacity="0"></stop>
+                </radialGradient>
+                <radialGradient id="gradient-2" cx="55" cy="20" fx="55" fy="20" r="30" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="white" stop-opacity="0.3"></stop>
+                    <stop offset="50%" stop-color="white" stop-opacity="0.1"></stop>
+                    <stop offset="100%" stop-color="white" stop-opacity="0"></stop>
+                </radialGradient>
+                <radialGradient id="gradient-3" cx="85" cy="50" fx="85" fy="50" xlink:href="#gradient-2">
+                </radialGradient>
+                <radialGradient id="gradient-4" cx="50" cy="58" fx="50" fy="58" r="60"
+                    gradientTransform="translate(0 47) scale(1 0.2)" xlink:href="#gradient-3"></radialGradient>
+                <linearGradient id="gradient-5" x1="50" y1="90" x2="50" y2="10" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="black" stop-opacity="0.2"></stop>
+                    <stop offset="40%" stop-color="black" stop-opacity="0"></stop>
+                </linearGradient>
+            </defs>
+            <g>
+                <path
+                    d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+                    fill="currentColor"></path>
+                <path
+                    d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+                    fill="url(#gradient-1)"></path>
+                <path
+                    d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+                    fill="none" stroke="white" opacity="0.3" stroke-width="3" filter="url(#shine)" mask="url(#mask)">
+                </path>
+                <path
+                    d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+                    fill="url(#gradient-2)"></path>
+                <path
+                    d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+                    fill="url(#gradient-3)"></path>
+                <path
+                    d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+                    fill="url(#gradient-4)"></path>
+                <path
+                    d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+                    fill="url(#gradient-5)"></path>
+            </g>
+        </svg>
+        <svg id="pegtoptwo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 100 100">
+            <defs>
+                <filter id="shine">
+                    <feGaussianBlur stdDeviation="3"></feGaussianBlur>
+                </filter>
+                <mask id="mask">
+                    <path
+                        d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+                        fill="white"></path>
+                </mask>
+                <radialGradient id="gradient-1" cx="50" cy="66" fx="50" fy="66" r="30"
+                    gradientTransform="translate(0 35) scale(1 0.5)" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="black" stop-opacity="0.3"></stop>
+                    <stop offset="50%" stop-color="black" stop-opacity="0.1"></stop>
+                    <stop offset="100%" stop-color="black" stop-opacity="0"></stop>
+                </radialGradient>
+                <radialGradient id="gradient-2" cx="55" cy="20" fx="55" fy="20" r="30" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="white" stop-opacity="0.3"></stop>
+                    <stop offset="50%" stop-color="white" stop-opacity="0.1"></stop>
+                    <stop offset="100%" stop-color="white" stop-opacity="0"></stop>
+                </radialGradient>
+                <radialGradient id="gradient-3" cx="85" cy="50" fx="85" fy="50" xlink:href="#gradient-2">
+                </radialGradient>
+                <radialGradient id="gradient-4" cx="50" cy="58" fx="50" fy="58" r="60"
+                    gradientTransform="translate(0 47) scale(1 0.2)" xlink:href="#gradient-3"></radialGradient>
+                <linearGradient id="gradient-5" x1="50" y1="90" x2="50" y2="10" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="black" stop-opacity="0.2"></stop>
+                    <stop offset="40%" stop-color="black" stop-opacity="0"></stop>
+                </linearGradient>
+            </defs>
+            <g>
+                <path
+                    d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+                    fill="currentColor"></path>
+                <path
+                    d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+                    fill="url(#gradient-1)"></path>
+                <path
+                    d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+                    fill="none" stroke="white" opacity="0.3" stroke-width="3" filter="url(#shine)" mask="url(#mask)">
+                </path>
+                <path
+                    d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+                    fill="url(#gradient-2)"></path>
+                <path
+                    d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+                    fill="url(#gradient-3)"></path>
+                <path
+                    d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+                    fill="url(#gradient-4)"></path>
+                <path
+                    d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+                    fill="url(#gradient-5)"></path>
+            </g>
+        </svg>
+        <svg id="pegtopthree" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 100 100">
+            <defs>
+                <filter id="shine">
+                    <feGaussianBlur stdDeviation="3"></feGaussianBlur>
+                </filter>
+                <mask id="mask">
+                    <path
+                        d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+                        fill="white"></path>
+                </mask>
+                <radialGradient id="gradient-1" cx="50" cy="66" fx="50" fy="66" r="30"
+                    gradientTransform="translate(0 35) scale(1 0.5)" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="black" stop-opacity="0.3"></stop>
+                    <stop offset="50%" stop-color="black" stop-opacity="0.1"></stop>
+                    <stop offset="100%" stop-color="black" stop-opacity="0"></stop>
+                </radialGradient>
+                <radialGradient id="gradient-2" cx="55" cy="20" fx="55" fy="20" r="30" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="white" stop-opacity="0.3"></stop>
+                    <stop offset="50%" stop-color="white" stop-opacity="0.1"></stop>
+                    <stop offset="100%" stop-color="white" stop-opacity="0"></stop>
+                </radialGradient>
+                <radialGradient id="gradient-3" cx="85" cy="50" fx="85" fy="50" xlink:href="#gradient-2">
+                </radialGradient>
+                <radialGradient id="gradient-4" cx="50" cy="58" fx="50" fy="58" r="60"
+                    gradientTransform="translate(0 47) scale(1 0.2)" xlink:href="#gradient-3"></radialGradient>
+                <linearGradient id="gradient-5" x1="50" y1="90" x2="50" y2="10" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="black" stop-opacity="0.2"></stop>
+                    <stop offset="40%" stop-color="black" stop-opacity="0"></stop>
+                </linearGradient>
+            </defs>
+            <g>
+                <path
+                    d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+                    fill="currentColor"></path>
+                <path
+                    d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+                    fill="url(#gradient-1)"></path>
+                <path
+                    d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+                    fill="none" stroke="white" opacity="0.3" stroke-width="3" filter="url(#shine)" mask="url(#mask)">
+                </path>
+                <path
+                    d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+                    fill="url(#gradient-2)"></path>
+                <path
+                    d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+                    fill="url(#gradient-3)"></path>
+                <path
+                    d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+                    fill="url(#gradient-4)"></path>
+                <path
+                    d="M63,37c-6.7-4-4-27-13-27s-6.3,23-13,27-27,4-27,13,20.3,9,27,13,4,27,13,27,6.3-23,13-27,27-4,27-13-20.3-9-27-13Z"
+                    fill="url(#gradient-5)"></path>
+            </g>
+        </svg>
+    </div>
+
     <!-- Navigation -->
     <nav class="fixed w-full bg-white shadow-md z-50 transition-all duration-300">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
@@ -95,7 +464,7 @@
                 <a href="#formation" class="nav-link relative">Formation</a>
                 <a href="#contact" class="nav-link relative">Contact</a>
             </div>
-            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none" aria-label="Ouvrir le menu mobile">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
                     </path>
@@ -121,48 +490,35 @@
             <div class="md:w-1/2 mb-12 md:mb-0">
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Bonjour, je suis <span
                         class="text-blue-500">Sofiane Khatib</span></h1>
-                <h2 class="text-2xl md:text-3xl text-gray-600 mb-6">Étudiant en Informatique & Développeur</h2>
-                <p class="text-lg text-gray-600 mb-8">Passionné par le développement logiciel, les bases de données et
-                    les technologies web. Actuellement à la recherche d'un stage de fin d'études (PFE).</p>
+                <h2 class="text-2xl md:text-3xl text-gray-600 mb-6">Élève ingénieur en Ingénierie Logicielle et
+                    Intelligence Artificielle (ILIA) AT FSTE</h2>
+                <p class="text-lg text-gray-600 mb-8">Passionné par la conception et le développement de solutions
+                    logicielles, l’intelligence artificielle, les bases de données et les technologies web. <br>
+                    Actuellement à la recherche d’un stage d’initiation.</p>
                 <div class="flex space-x-4">
-                    <a href="#contact"
-                        class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition duration-300">Me
+                    <a href="#contact" class="bg-blue-500 text-white px-6 py-3 rounded-xl transition duration-300">Me
                         contacter</a>
-                    <a href="#projets"
-                        class="border border-blue-500 text-blue-500 hover:bg-blue-50 px-6 py-3 rounded-lg transition duration-300">Voir
+                    <a href="#projets" class="bg-blue-500 text-white px-6 py-3 rounded-xl transition duration-300">Voir
                         mes projets</a>
-                </div>
-                <div class="mt-8 flex space-x-4">
-                    <a href="https://www.linkedin.com/in/sofiane-khatib-5b775332b/" target="_blank"
-                        class="text-gray-600 hover:text-blue-500 transition duration-300">
-                        <i class="fab fa-linkedin-in text-2xl"></i>
-                    </a>
-                    <a href="https://github.com/sofianekhatib" target="_blank"
-                        class="text-gray-600 hover:text-gray-900 transition duration-300">
-                        <i class="fab fa-github text-2xl"></i>
-                    </a>
-                    <a href="mailto:soufianekhatib652@gmail.com"
-                        class="text-gray-600 hover:text-red-500 transition duration-300">
-                        <i class="fas fa-envelope text-2xl"></i>
+
+                    <a href="/CV/Guide_étudiant.pdf" download class="inline-flex items-center gap-2 rounded-xl bg-green-600 px-6 py-3 text-sm font-semibold text-white shadow-md transition
+         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
+         active:scale-95">
+                        <!-- Download icon (optional) -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4" />
+                        </svg>
+
+                        Télécharger CV
                     </a>
                 </div>
             </div>
             <div class="md:w-1/2 flex justify-center">
                 <div class="relative block gap-2 w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
-                    <img src="WhatsApp Image 2024-11-10 à 14.41.31_d691621b.jpg" alt="Profil"
+                    <img src="Images/Design sans titre (3).png" alt="Profil"
                         class="relative w-full h-full rounded-full object-cover border-4 border-white shadow-lg">
-                    <div class="mt-6 ml-12 block md:hidden">
-                        <a href="https://drive.google.com/drive/folders/1IQMwkosSllfMN6d2ESpx9tm6frYoBXGM" target="_blank"
-                            class="bg-green-500 text-white hover:bg-green-600 px-4 py-2 rounded-lg transition duration-300">Télécharger
-                            CV
-                        </a>
-                    </div>
-                    <div class="hidden lg:block mt-6 ml-28">
-                        <a href="https://drive.google.com/drive/folders/1IQMwkosSllfMN6d2ESpx9tm6frYoBXGM" target="_blank"
-                            class="bg-green-500 text-white hover:bg-green-600 px-4 py-2 rounded-lg transition duration-300">
-                            Télécharger CV
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -175,20 +531,18 @@
             </h2>
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
-                    <img src="WhatsApp Image 2024-11-10 à 14.41.31_d691621b.jpg" alt="Sofiane Khatib"
+                    <img src="Images/Design sans titre (3).png" alt="Sofiane Khatib"
                         class="w-64 h-64 rounded-full object-cover border-4 border-blue-100 shadow-lg">
                 </div>
                 <div class="md:w-2/3 md:pl-12">
                     <h3 class="text-2xl font-semibold mb-4">Qui suis-je ?</h3>
                     <p class="text-lg text-gray-600 mb-6">
-                        Je m'appelle Sofiane Khatib, étudiant en licence d'informatique à la Faculté des Sciences et
-                        Techniques de Béni Mellal au Maroc.
-                        Actuellement à la recherche d'un stage de fin d'études (PFE), je suis passionné par le
-                        développement logiciel, les bases de données
-                        et les technologies web. Mon objectif est d'intégrer une structure dynamique où je pourrai
-                        mettre en pratique mes compétences
-                        tout en continuant à apprendre auprès de professionnels expérimentés.
-                    </p>
+                        Je m’appelle Sofiane Khatib, élève ingénieur en Ingénierie Logicielle et Intelligence
+                        Artificielle (ILIA) à la Faculté des Sciences et Techniques (FST) d'Errachodia, Maroc. <br>
+                        Je m’intéresse particulièrement au développement logiciel, à l’intelligence artificielle, aux
+                        bases de données et aux technologies web. <br>
+                        Aspirant à évoluer au sein d’un environnement professionnel dynamique, propice à l’apprentissage
+                        continu et à la mise en pratique de compétences techniques avancées. </p>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <h4 class="font-semibold mb-2">Informations personnelles</h4>
@@ -199,7 +553,7 @@
                                 </li>
                                 <li class="flex items-center">
                                     <i class="fas fa-phone text-blue-500 mr-2"></i>
-                                    <span>+212 772 817 824</span>
+                                    <span>+212 772 817 824 / +212 631 215 649</span>
                                 </li>
                                 <li class="flex items-center">
                                     <i class="fas fa-envelope text-blue-500 mr-2"></i>
@@ -229,191 +583,178 @@
             </div>
         </div>
     </section>
-
     <!-- Skills Section -->
-    <section id="competences" class="py-20 bg-gray-50 section">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Mes <span
-                    class="text-blue-500">compétences</span></h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Langages -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-blue-100 p-3 rounded-full mr-4">
-                            <i class="fas fa-code text-blue-500 text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold">Langages de programmation</h3>
-                    </div>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="skill-pill bg-blue-100 text-blue-800 px-4 py-2 rounded-full">JavaScript</span>
-                        <span class="skill-pill bg-blue-100 text-blue-800 px-4 py-2 rounded-full">Java</span>
-                        <span class="skill-pill bg-blue-100 text-blue-800 px-4 py-2 rounded-full">PHP</span>
-                        <span class="skill-pill bg-blue-100 text-blue-800 px-4 py-2 rounded-full">C</span>
-                        <span class="skill-pill bg-blue-100 text-blue-800 px-4 py-2 rounded-full">HTML5/CSS3</span>
-                    </div>
-                </div>
+    <section class="w-full min-h-screen px-8 py-14 bg-gray-50">
+        <h2 class="text-4xl font-bold text-gray-800 mb-12 text-center">
+            Compétences <span class="text-blue-500">Techniques</span>
+        </h2>
 
-                <!-- Frameworks -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-purple-100 p-3 rounded-full mr-4">
-                            <i class="fas fa-cogs text-purple-500 text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold">Frameworks & Bibliothèques</h3>
-                    </div>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="skill-pill bg-purple-100 text-purple-800 px-4 py-2 rounded-full">React.js</span>
-                        <span class="skill-pill bg-purple-100 text-purple-800 px-4 py-2 rounded-full">Tailwind
-                            CSS</span>
-                        <span class="skill-pill bg-purple-100 text-purple-800 px-4 py-2 rounded-full">Bootstrap</span>
-                        <span class="skill-pill bg-purple-100 text-purple-800 px-4 py-2 rounded-full">Material UI</span>
-                    </div>
-                </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
 
-                <!-- Bases de données -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-green-100 p-3 rounded-full mr-4">
-                            <i class="fas fa-database text-green-500 text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold">Bases de données</h3>
-                    </div>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="skill-pill bg-green-100 text-green-800 px-4 py-2 rounded-full">MySQL</span>
-                        <span class="skill-pill bg-green-100 text-green-800 px-4 py-2 rounded-full">SQL</span>
-                    </div>
-                </div>
-
-                <!-- Outils -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-yellow-100 p-3 rounded-full mr-4">
-                            <i class="fas fa-tools text-yellow-500 text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold">Outils</h3>
-                    </div>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="skill-pill bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">Git/GitHub</span>
-                        <span class="skill-pill bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">Visual
-                            Studio</span>
-                        <span class="skill-pill bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">Eclipse</span>
-                        <span class="skill-pill bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">Matlab</span>
-                    </div>
-                </div>
-
-                <!-- Méthodologies -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-red-100 p-3 rounded-full mr-4">
-                            <i class="fas fa-project-diagram text-red-500 text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold">Méthodologies</h3>
-                    </div>
-                    <div class="flex flex-col gap-2">
-                        <div class="flex items-center">
-                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                            <span>Programmation Orientée Objet (POO)</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                            <span>Design Responsive</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                            <span>API REST & JSON</span>
-                        </div>
-                    </div>
-                </div>
+            <!-- Développement Web -->
+            <div class="bg-white rounded-2xl shadow-md p-6">
+                <h3 class="text-xl font-semibold text-blue-600 mb-3">🌐 Développement Web</h3>
+                <ul class="text-gray-700 space-y-1">
+                    <li>HTML5, CSS3</li>
+                    <li>Tailwind CSS</li>
+                    <li>JavaScript (Fondamentaux & DOM)</li>
+                    <li>React.js</li>
+                    <li>PHP</li>
+                </ul>
             </div>
+
+            <!-- Programmation -->
+            <div class="bg-white rounded-2xl shadow-md p-6">
+                <h3 class="text-xl font-semibold text-green-600 mb-3">🧩 Programmation & POO</h3>
+                <ul class="text-gray-700 space-y-1">
+                    <li>Python (Fondamentaux)</li>
+                    <li>Java (Fondamentaux)</li>
+                    <li>C</li>
+                    <li>Programmation Orientée Objet (Java & Python)</li>
+                </ul>
+            </div>
+
+            <!-- Bases de données -->
+            <div class="bg-white rounded-2xl shadow-md p-6">
+                <h3 class="text-xl font-semibold text-purple-600 mb-3">🗄️ Bases de Données</h3>
+                <ul class="text-gray-700 space-y-1">
+                    <li>SQL</li>
+                    <li>MySQL</li>
+                </ul>
+            </div>
+
+            <!-- Data -->
+            <div class="bg-white rounded-2xl shadow-md p-6">
+                <h3 class="text-xl font-semibold text-orange-600 mb-3">📊 Data & Visualisation</h3>
+                <ul class="text-gray-700 space-y-1">
+                    <li>NumPy</li>
+                    <li>Matplotlib</li>
+                </ul>
+            </div>
+
+            <!-- Conception -->
+            <div class="bg-white rounded-2xl shadow-md p-6">
+                <h3 class="text-xl font-semibold text-red-600 mb-3">📐 Analyse & Conception</h3>
+                <ul class="text-gray-700 space-y-1">
+                    <li>UML</li>
+                    <li>MERISE</li>
+                    <li>Complexité des algorithmes</li>
+                </ul>
+            </div>
+
+            <!-- Réseaux -->
+            <div class="bg-white rounded-2xl shadow-md p-6">
+                <h3 class="text-xl font-semibold text-cyan-600 mb-3">🌐 Réseaux Informatiques</h3>
+                <ul class="text-gray-700 space-y-1">
+                    <li>Réseaux informatiques</li>
+                    <li>Cisco Packet Tracer</li>
+                </ul>
+            </div>
+
+            <!-- Outils -->
+            <div class="bg-white rounded-2xl shadow-md p-6 md:col-span-2 xl:col-span-3">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">🛠️ Outils & Environnements</h3>
+                <ul class="flex flex-wrap gap-3">
+                    <li class="bg-gray-200 px-4 py-1 rounded-full">Git</li>
+                    <li class="bg-gray-200 px-4 py-1 rounded-full">GitHub</li>
+                    <li class="bg-gray-200 px-4 py-1 rounded-full">Visual Studio</li>
+                    <li class="bg-gray-200 px-4 py-1 rounded-full">Eclipse</li>
+                </ul>
+            </div>
+
         </div>
     </section>
 
+
     <!-- Projects Section -->
-    <section id="projets" class="py-20 bg-white section">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Mes <span class="text-blue-500">projets</span>
+    <section id="projets" class="py-12 bg-white section">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-8">Mes <span class="text-blue-500">projets</span>
             </h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="space-y-6">
                 <!-- Système de Gestion de Bibliothèque -->
                 <div
-                    class="bg-gray-50 rounded-lg overflow-hidden shadow-md border border-gray-100 transition-transform duration-300 hover:shadow-lg hover:-translate-y-2">
-                    <div class="h-48 bg-blue-500 flex items-center justify-center">
-                        <i class="fas fa-book-open text-white text-6xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Système de Gestion de Bibliothèque</h3>
-                        <p class="text-gray-600 mb-4">
-                            Application responsive et sécurisée développée avec React.js, Tailwind CSS, Bootstrap et
-                            PHP.
-                        </p>
-                        <div class="mb-4">
-                            <h4 class="font-medium mb-2">Fonctionnalités :</h4>
-                            <ul class="list-disc list-inside text-gray-600 space-y-1">
-                                <li>Recherche et filtrage avancé</li>
-                                <li>Gestion complète des livres</li>
-                                <li>Inscription en ligne</li>
-                                <li>Système d'emprunt/retour</li>
-                            </ul>
+                    class="bg-gray-50 rounded-lg overflow-hidden shadow-sm border border-gray-200 hover:shadow-md transition-shadow duration-300">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="md:w-1/4 bg-blue-500 p-4 flex items-center justify-center">
+                            <i class="fas fa-book-open text-white text-4xl"></i>
                         </div>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">React.js</span>
-                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Tailwind CSS</span>
-                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Bootstrap</span>
-                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">PHP</span>
-                        </div>
-                        <div class="projet">
-                            <a href="https://github.com/sofianekhatib/AcademIQ.git" target="_blank"
-                                class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition duration-300">Consulter
-                                le dépôt sur GitHub</a>
-                            <a href="https://sofianekhatib.github.io/biblioscience/" target="_blank"
-                                class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition duration-300">Aperçu
-                                en direct</a>
+                        <div class="md:w-3/4 p-4">
+                            <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-3">
+                                <h3 class="text-lg font-semibold mb-2 md:mb-0">Système de Gestion de Bibliothèque</h3>
+                                <div class="flex flex-wrap gap-2 mb-3 md:mb-0">
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">React.js</span>
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Tailwind
+                                        CSS</span>
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">PHP</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-3">
+                                Application responsive et sécurisée pour la gestion de bibliothèque.
+                            </p>
+                            <div class="flex flex-wrap gap-2 text-sm mb-4">
+                                <span class="text-gray-700">• Recherche avancée</span>
+                                <span class="text-gray-700">• Gestion des livres</span>
+                                <span class="text-gray-700">• Système d'emprunt</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <a href="https://github.com/sofianekhatib/AcademIQ.git" target="_blank"
+                                    class="bg-blue-500 hover:bg-blue-600 text-white text-sm px-4 py-2 rounded transition duration-300">
+                                    GitHub
+                                </a>
+                                <a href="https://sofianekhatib.github.io/biblioscience/" target="_blank"
+                                    class="bg-gray-200 hover:bg-gray-300 text-gray-800 text-sm px-4 py-2 rounded transition duration-300">
+                                    Live Demo
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Système de Gestion d'Hôpital -->
                 <div
-                    class="bg-gray-50 rounded-lg overflow-hidden shadow-md border border-gray-100 transition-transform duration-300 hover:shadow-lg hover:-translate-y-2">
-                    <div class="h-48 bg-green-500 flex items-center justify-center">
-                        <i class="fas fa-hospital text-white text-6xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Système de Gestion d'Hôpital</h3>
-                        <p class="text-gray-600 mb-4">
-                            Interface complète développée avec React.js, Tailwind CSS et Material UI.
-                        </p>
-                        <div class="mb-4">
-                            <h4 class="font-medium mb-2">Fonctionnalités :</h4>
-                            <ul class="list-disc list-inside text-gray-600 space-y-1">
-                                <li>Gestion des dossiers patients</li>
-                                <li>Suivi des médicaments</li>
-                                <li>Prise de rendez-vous en ligne</li>
-                                <li>Système de facturation</li>
-                            </ul>
+                    class="bg-gray-50 rounded-lg overflow-hidden shadow-sm border border-gray-200 hover:shadow-md transition-shadow duration-300">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="md:w-1/4 bg-green-500 p-4 flex items-center justify-center">
+                            <i class="fas fa-hospital text-white text-4xl"></i>
                         </div>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">React.js</span>
-                            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Tailwind CSS</span>
-                            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Material UI</span>
-                        </div>
-                        <div class="projet">
-                            <a
-                                class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg transition duration-300">Consulter
-                                le dépôt sur GitHub</a>
-                            <a href=""
-                                class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg transition duration-300">Aperçu
-                                en direct</a>
-
+                        <div class="md:w-3/4 p-4">
+                            <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-3">
+                                <h3 class="text-lg font-semibold mb-2 md:mb-0">Système de Gestion d'Hôpital</h3>
+                                <div class="flex flex-wrap gap-2 mb-3 md:mb-0">
+                                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">React.js</span>
+                                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Tailwind
+                                        CSS</span>
+                                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Material
+                                        UI</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-3">
+                                Interface complète pour la gestion hospitalière.
+                            </p>
+                            <div class="flex flex-wrap gap-2 text-sm mb-4">
+                                <span class="text-gray-700">• Dossiers patients</span>
+                                <span class="text-gray-700">• Suivi médicaments</span>
+                                <span class="text-gray-700">• Rendez-vous en ligne</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <a href="#" target="_blank"
+                                    class="bg-green-500 hover:bg-green-600 text-white text-sm px-4 py-2 rounded transition duration-300">
+                                    GitHub
+                                </a>
+                                <a href="#" target="_blank"
+                                    class="bg-gray-200 hover:bg-gray-300 text-gray-800 text-sm px-4 py-2 rounded transition duration-300">
+                                    Live Demo
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Education Section -->
+    </section> <!-- Education Section -->
     <section id="formation" class="py-20 bg-gray-50 section">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Ma <span class="text-blue-500">formation</span>
@@ -451,9 +792,10 @@
                             <i class="fas fa-check text-blue-500"></i>
                         </div>
                         <div>
-                            <h3 class="text-xl font-semibold">Licence en Informatique</h3>
+                            <h3 class="text-xl font-semibold">Cycle d’ingénieur – Génie logiciel et intelligence
+                                artificielle</h3>
                             <p class="text-blue-500 mb-2">2025-2026</p>
-                            <p class="text-gray-600">Faculté des Sciences et Techniques, Béni Mellal, Maroc</p>
+                            <p class="text-gray-600">Faculté des Sciences et Techniques d'Errachidia (FSTE)</p>
                         </div>
                     </div>
                 </div>
@@ -461,104 +803,128 @@
         </div>
     </section>
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white section">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Me <span class="text-blue-500">contacter</span>
+    <section id="contact" class="py-16 md:py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-10 md:mb-12">
+                Me <span class="text-blue-500">contacter</span>
             </h2>
 
-            <div class="flex flex-col md:flex-row">
-                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
-                    <h3 class="text-2xl font-semibold mb-4">Coordonnées</h3>
-                    <p class="text-gray-600 mb-6">N'hésitez pas à me contacter pour toute question ou opportunité. Je
-                        vous répondrai dès que possible !</p>
-
-                    <div class="space-y-4">
-                        <div class="flex items-start">
-                            <div class="bg-blue-100 p-3 rounded-full mr-4">
-                                <i class="fas fa-map-marker-alt text-blue-500"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold">Adresse</h4>
-                                <p class="text-gray-600">Béni Mellal, Maroc</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start">
-                            <div class="bg-blue-100 p-3 rounded-full mr-4">
-                                <i class="fas fa-phone text-blue-500"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold">Téléphone</h4>
-                                <p class="text-gray-600">+212 772 817 824</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start">
-                            <div class="bg-blue-100 p-3 rounded-full mr-4">
-                                <i class="fas fa-envelope text-blue-500"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold">Email</h4>
-                                <p class="text-gray-600">soufianekhatib652@gmail.com</p>
-                            </div>
-                        </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-5xl mx-auto">
+                <!-- Adresse -->
+                <div
+                    class="flex flex-col items-center text-center md:items-start md:text-left p-4 rounded-xl bg-blue-50 hover:bg-blue-100 transition-colors duration-300">
+                    <div class="bg-blue-100 p-3 rounded-full mb-3">
+                        <i class="fas fa-map-marker-alt text-blue-500"></i>
                     </div>
-
-                    <div class="mt-8">
-                        <h4 class="font-semibold mb-4">Réseaux sociaux</h4>
-                        <div class="flex space-x-4">
-                            <a href="https://www.linkedin.com/in/sofiane-khatib-5b775332b/" target="_blank"
-                                class="bg-blue-100 text-blue-500 hover:bg-blue-200 w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="https://github.com/sofianekhatib" target="_blank"
-                                class="bg-gray-100 text-gray-700 hover:bg-gray-200 w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
+                    <div>
+                        <h4 class="font-semibold text-lg mb-1">Adresse</h4>
+                        <p class="text-gray-600 text-sm md:text-base">Béni Mellal, Maroc</p>
                     </div>
                 </div>
 
-                <div class="md:w-1/2">
-                    <form class="bg-gray-50 p-6 rounded-lg shadow-md">
-                        <div class="mb-4">
-                            <label for="name" class="block text-gray-700 font-medium mb-2">Votre nom</label>
-                            <input type="text" id="name"
-                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
+                <!-- Téléphone -->
+                <div
+                    class="flex flex-col items-center text-center md:items-start md:text-left p-4 rounded-xl bg-blue-50 hover:bg-blue-100 transition-colors duration-300">
+                    <div class="bg-blue-100 p-3 rounded-full mb-3">
+                        <i class="fas fa-phone text-blue-500"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-lg mb-1">Téléphone</h4>
+                        <p class="text-gray-600 text-sm md:text-base break-words">
+                            +212 772 817 824<br>
+                            +212 631 215 649
+                        </p>
+                    </div>
+                </div>
 
-                        <div class="mb-4">
-                            <label for="email" class="block text-gray-700 font-medium mb-2">Votre email</label>
-                            <input type="email" id="email"
-                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
+                <!-- Email -->
+                <div
+                    class="flex flex-col items-center text-center md:items-start md:text-left p-4 rounded-xl bg-blue-50 hover:bg-blue-100 transition-colors duration-300">
+                    <div class="bg-blue-100 p-3 rounded-full mb-3">
+                        <i class="fas fa-envelope text-blue-500"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-lg mb-1">Email</h4>
+                        <p class="text-gray-600 text-sm md:text-base break-all">
+                            soufianekhatib652@gmail.com
+                        </p>
+                    </div>
+                </div>
 
-                        <div class="mb-4">
-                            <label for="sujet" class="block text-gray-700 font-medium mb-2">Sujet</label>
-                            <input type="text" id="sujet"
-                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
+                <!-- Réseaux sociaux -->
+                <div
+                    class="flex flex-col items-center text-center md:items-start md:text-left p-4 rounded-xl bg-blue-50 hover:bg-blue-100 transition-colors duration-300">
+                    <div class="bg-blue-100 p-3 rounded-full mb-3">
+                        <i class="fas fa-share-alt text-blue-500"></i>
+                    </div>
+                    <div class="w-full">
+                        <h4 class="font-semibold text-lg mb-3">Réseaux</h4>
+                        <div class="flex justify-center md:justify-start space-x-3">
+                            <!-- LinkedIn -->
+                            <a href="https://www.linkedin.com/in/sofiane-khatib-5b775332b" target="_blank"
+                                rel="noopener noreferrer" title="LinkedIn"
+                                class="transform transition-all duration-300 ease-out hover:scale-110 hover:-translate-y-1 hover:shadow-lg">
+                                <div
+                                    class="w-10 h-10 md:w-8 md:h-8 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center shadow-md border border-blue-500/50">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"
+                                        class="h-4 w-4 md:h-4 md:w-4 text-white">
+                                        <path
+                                            d="M20.447 20.452H16.89v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.345V9h3.414v1.561h.047c.476-.9 1.637-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.455v6.286zM5.337 7.433a1.986 1.986 0 110-3.971 1.986 1.986 0 010 3.97zM7.119 20.452H3.554V9h3.565v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.727v20.545C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.273V1.727C24 .774 23.2 0 22.222 0z" />
+                                    </svg>
+                                </div>
+                            </a>
 
-                        <div class="mb-4">
-                            <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
-                            <textarea id="message" rows="5"
-                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                        </div>
+                            <!-- GitHub -->
+                            <a href="https://github.com/sofianekhatib" target="_blank" rel="noopener noreferrer"
+                                title="GitHub"
+                                class="transform transition-all duration-300 ease-out hover:scale-110 hover:-translate-y-1 hover:shadow-lg">
+                                <div
+                                    class="w-10 h-10 md:w-8 md:h-8 bg-gradient-to-br from-gray-700 to-gray-900 rounded-lg flex items-center justify-center shadow-md border border-gray-600/50">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"
+                                        class="h-4 w-4 md:h-4 md:w-4 text-white">
+                                        <path
+                                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </div>
+                            </a>
 
-                        <button type="submit"
-                            class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition duration-300 w-full">
-                            Envoyer le message
-                        </button>
-                    </form>
+                            <!-- WhatsApp -->
+                            <a href="https://wa.me/212772817824" target="_blank" rel="noopener noreferrer"
+                                title="WhatsApp"
+                                class="transform transition-all duration-300 ease-out hover:scale-110 hover:-translate-y-1 hover:shadow-lg">
+                                <div
+                                    class="w-10 h-10 md:w-8 md:h-8 bg-gradient-to-br from-green-500 to-green-700 rounded-lg flex items-center justify-center shadow-md border border-green-400/50">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"
+                                        class="h-4 w-4 md:h-4 md:w-4 text-white" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.15-.197.297-.767.967-.94 1.164-.173.198-.347.223-.644.075-.297-.15-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.226 1.36.194 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.051 21.785h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.75.982.998-3.667-.236-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.9 6.994c-.004 5.45-4.438 9.88-9.888 9.88" />
+                                    </svg>
+                                </div>
+                            </a>
+
+                            <!-- Facebook -->
+                            <a href="https://www.facebook.com/sofiane.khatib/" target="_blank" rel="noopener noreferrer"
+                                title="Facebook"
+                                class="transform transition-all duration-300 ease-out hover:scale-110 hover:-translate-y-1 hover:shadow-lg">
+                                <div
+                                    class="w-10 h-10 md:w-8 md:h-8 bg-gradient-to-br from-blue-700 to-blue-900 rounded-lg flex items-center justify-center shadow-md border border-blue-500/50">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"
+                                        class="h-4 w-4 md:h-4 md:w-4 text-white">
+                                        <path
+                                            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-8">
         <div class="container mx-auto px-6 text-center">
-            <p>&copy; 2023 Sofiane Khatib. Tous droits réservés.</p>
+            <p>Sofiane Khatib Curriculum Vitae.</p>
             <div class="flex justify-center space-x-6 mt-4">
                 <a href="#accueil" class="hover:text-blue-300 transition duration-300">Accueil</a>
                 <a href="#apropos" class="hover:text-blue-300 transition duration-300">À propos</a>
@@ -624,7 +990,88 @@
                 nav.classList.remove('shadow-lg');
             }
         });
+        window.addEventListener("load", () => {
+            document.getElementById("preloader").style.display = "none";
+            document.querySelector(".content").style.display = "block";
+        });
+        // Hide loader and show content when page is fully loaded
+        window.addEventListener("load", () => {
+            const loader = document.querySelector('.loader');
+            const content = document.querySelector('.content');
+
+            // Optional: wait a bit for smoother transition
+            setTimeout(() => {
+                if (loader) {
+                    loader.style.display = 'none';
+                }
+                if (content) {
+                    content.classList.add('loaded');
+                }
+            }, 500); // Adjust delay as needed (500ms = half a second)
+        });
+
+        // Also hide loader if there's an error
+        // Loader configuration
+        const LOADER_CONFIG = {
+            minDisplayTime: 7000, // Minimum 3 seconds
+            maxDisplayTime: 20000, // Maximum 10 seconds (safety timeout)
+        };
+
+        let pageLoaded = false;
+        let loaderDisplayed = Date.now();
+
+        // Function to hide loader
+        function hideLoader() {
+            const loader = document.querySelector('.loader');
+            const content = document.querySelector('.content');
+
+            if (loader) {
+                loader.style.display = 'none';
+                loader.style.opacity = '0';
+                loader.style.transition = 'opacity 0.5s ease';
+            }
+
+            if (content) {
+                content.style.opacity = '1';
+                content.style.visibility = 'visible';
+            }
+        }
+
+        // Function to show content
+        function showContent() {
+            const now = Date.now();
+            const elapsedTime = now - loaderDisplayed;
+            const timeRemaining = Math.max(0, LOADER_CONFIG.minDisplayTime - elapsedTime);
+
+            pageLoaded = true;
+
+            // Wait the remaining time to meet minimum display time
+            setTimeout(() => {
+                hideLoader();
+            }, timeRemaining);
+        }
+
+        // Page load event
+        window.addEventListener("load", () => {
+            showContent();
+        });
+
+        // Safety timeout - hide loader after maximum time even if page hasn't loaded
+        setTimeout(() => {
+            if (!pageLoaded) {
+                hideLoader();
+            }
+        }, LOADER_CONFIG.maxDisplayTime);
+
+        // Error handling - hide loader if there's an error
+        window.addEventListener("error", () => {
+            const now = Date.now();
+            const elapsedTime = now - loaderDisplayed;
+            const timeRemaining = Math.max(0, LOADER_CONFIG.minDisplayTime - elapsedTime);
+
+            setTimeout(() => {
+                hideLoader();
+            }, timeRemaining);
+        });
     </script>
 </body>
-
-</html>
