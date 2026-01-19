@@ -525,64 +525,85 @@
     </section>
 
     <!-- About Section -->
-    <section id="apropos" class="py-20 bg-white section">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">À <span class="text-blue-500">propos</span>
-            </h2>
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
-                    <img src="Design sans titre (3).png" alt="Sofiane Khatib"
-                        class="w-64 h-64 rounded-full object-cover border-4 border-blue-100 shadow-lg">
-                </div>
-                <div class="md:w-2/3 md:pl-12">
-                    <h3 class="text-2xl font-semibold mb-4">Qui suis-je ?</h3>
-                    <p class="text-lg text-gray-600 mb-6">
-                        Je m’appelle Sofiane Khatib, élève ingénieur en Ingénierie Logicielle et Intelligence
-                        Artificielle (ILIA) à la Faculté des Sciences et Techniques (FST) d'Errachodia, Maroc. <br>
-                        Je m’intéresse particulièrement au développement logiciel, à l’intelligence artificielle, aux
-                        bases de données et aux technologies web. <br>
-                        Aspirant à évoluer au sein d’un environnement professionnel dynamique, propice à l’apprentissage
-                        continu et à la mise en pratique de compétences techniques avancées. </p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <h4 class="font-semibold mb-2">Informations personnelles</h4>
-                            <ul class="space-y-2">
-                                <li class="flex items-center">
-                                    <i class="fas fa-map-marker-alt text-blue-500 mr-2"></i>
-                                    <span>Béni Mellal, Maroc</span>
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-phone text-blue-500 mr-2"></i>
-                                    <span>+212 772 817 824 / +212 631 215 649</span>
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-envelope text-blue-500 mr-2"></i>
-                                    <span>soufianekhatib652@gmail.com</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold mb-2">Langues</h4>
-                            <ul class="space-y-2">
-                                <li class="flex items-center">
-                                    <i class="fas fa-check text-blue-500 mr-2"></i>
-                                    <span>Arabe (Langue maternelle)</span>
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check text-blue-500 mr-2"></i>
-                                    <span>Anglais (Avancé)</span>
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check text-blue-500 mr-2"></i>
-                                    <span>Français (Intermédiaire)</span>
-                                </li>
-                            </ul>
-                        </div>
+    <section id="apropos" class="py-16 bg-white section">
+    <div class="container mx-auto px-4 md:px-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-10">
+            À <span class="text-blue-500">propos</span>
+        </h2>
+
+        <div class="flex flex-col md:flex-row items-center">
+            
+            <!-- Image -->
+            <div class="w-full md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                <img 
+                    src="Images/Design sans titre (3).png" 
+                    alt="Sofiane Khatib"
+                    class="w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64 
+                           rounded-full object-cover border-4 border-blue-100 shadow-lg"
+                >
+            </div>
+
+            <!-- Text -->
+            <div class="w-full md:w-2/3 md:pl-12 text-center md:text-left">
+                <h3 class="text-2xl font-semibold mb-4">Qui suis-je ?</h3>
+
+                <p class="text-base md:text-lg text-gray-600 mb-6 leading-relaxed">
+                    Je m’appelle Sofiane Khatib, élève ingénieur en Ingénierie Logicielle et Intelligence
+                    Artificielle (ILIA) à la Faculté des Sciences et Techniques (FST) d'Errachodia, Maroc.
+                    <br class="hidden md:block">
+                    Je m’intéresse particulièrement au développement logiciel, à l’intelligence artificielle,
+                    aux bases de données et aux technologies web.
+                    <br class="hidden md:block">
+                    Aspirant à évoluer au sein d’un environnement professionnel dynamique, propice à
+                    l’apprentissage continu.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <!-- Infos -->
+                    <div>
+                        <h4 class="font-semibold mb-2">Informations personnelles</h4>
+                        <ul class="space-y-2 text-sm md:text-base">
+                            <li class="flex items-center justify-center md:justify-start">
+                                <i class="fas fa-map-marker-alt text-blue-500 mr-2"></i>
+                                <span>Béni Mellal, Maroc</span>
+                            </li>
+                            <li class="flex items-center justify-center md:justify-start">
+                                <i class="fas fa-phone text-blue-500 mr-2"></i>
+                                <span>+212 772 817 824</span>
+                            </li>
+                            <li class="flex items-center justify-center md:justify-start">
+                                <i class="fas fa-envelope text-blue-500 mr-2"></i>
+                                <span class="break-all">soufianekhatib652@gmail.com</span>
+                            </li>
+                        </ul>
                     </div>
+
+                    <!-- Langues -->
+                    <div>
+                        <h4 class="font-semibold mb-2">Langues</h4>
+                        <ul class="space-y-2 text-sm md:text-base">
+                            <li class="flex items-center justify-center md:justify-start">
+                                <i class="fas fa-check text-blue-500 mr-2"></i>
+                                <span>Arabe (Langue maternelle)</span>
+                            </li>
+                            <li class="flex items-center justify-center md:justify-start">
+                                <i class="fas fa-check text-blue-500 mr-2"></i>
+                                <span>Anglais (Avancé)</span>
+                            </li>
+                            <li class="flex items-center justify-center md:justify-start">
+                                <i class="fas fa-check text-blue-500 mr-2"></i>
+                                <span>Français (Intermédiaire)</span>
+                            </li>
+                        </ul>
+                    </div>
+
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
     <!-- Skills Section -->
 
     <section class="w-full min-h-screen px-8 py-14 bg-gray-50">
@@ -1076,3 +1097,4 @@
     </script>
 
 </body>
+
